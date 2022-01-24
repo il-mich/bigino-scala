@@ -2,11 +2,11 @@
 
 Ripetizioni: sono una famiglia di funzioni che indica una ripetizioni di tot+ elementi eventualmente divisi da un separatore, nel pattern matching restituiscono una lista:
 
-  - `rep(statement)`: $0+$ elementi del tipo `statement`
-  - `rep1(statement)`: $1+$ elementi del tipo `statement`
-  - `repN(n, statement)`: $n$ elementi del tipo `statement`
-  - `repsep(statement, separator)`: $0+$ elementi del tipo `statement`, separatati dalla stringa `separator`
-  - `rep1sep(statement, separator)`: $1$ elementi del tipo `statement`, separatati dalla stringa `separator`
+  - `rep(statement)`: `0+` elementi del tipo `statement`
+  - `rep1(statement)`: `1+` elementi del tipo `statement`
+  - `repN(n, statement)`: `n` elementi del tipo `statement`
+  - `repsep(statement, separator)`: `0+` elementi del tipo `statement`, separatati dalla stringa `separator`
+  - `rep1sep(statement, separator)`: `1` elementi del tipo `statement`, separatati dalla stringa `separator`
   - `opt(statement)`: indica che la presente di uno `statement` è opzionale, nel pattern matching risulta come un optional (`Some(x)` o `None`)
 
 ## Regex di JavaTokenParsers
