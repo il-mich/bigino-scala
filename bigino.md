@@ -65,11 +65,11 @@ class <<LanguageParser>> extends JavaTokenParsers {
   def <<OtherExpression>> = <<LanguageExpression>> ~ "=" ~ <<LanguageValue>> ^^ {case expression ~ _ ~ value => new <<LanguageOtherExpression>>(name, value.toInt)}
 
   def parse(s: String) = parseAll(<<LanguageProgram>>, s) match {
-    case Success(matched, _)   => matched
-    case Failure(msg, _)              => {   println("FAILURE: " + msg)
-                                                                throw new RuntimeException }
-    case Error(msg, _)                  => {  println("ERROR: " + msg)
-                                                                throw new RuntimeException }
+    case Success(matched, _)  => matched
+    case Failure(msg, _)      => {  println("FAILURE: " + msg)
+                                    throw new RuntimeException }
+    case Error(msg, _)        => {  println("ERROR: " + msg)
+                                    throw new RuntimeException }
   }
 }
 
@@ -215,8 +215,8 @@ class DParser extends JavaTokenParsers {
   def assignment = ident ~ "=" ~ wholeNumber ^^ {case name ~ _ ~ num => (new Assignment(name, num.toInt))}
 
   def sums = repsep(addend, "+")
-  def addend =    ident       ^^ {case name => new Identity(name)} |
-  wholeNumber ^^ {case num => new Value(num.toInt)}
+  def addend =  ident       ^^ {case name => new Identity(name)} |
+                wholeNumber ^^ {case num => new Value(num.toInt)}
 
   def parse(s: String) = parseAll(program, s) match {
     case Success(matched, _) => matched
